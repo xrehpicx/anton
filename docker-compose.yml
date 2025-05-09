@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: pgvector/pgvector:pg17 # Official Postgres 17 with pgvector extension pre-installed
+    container_name: pgvector-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-anya_dev}
+    ports:
+      - '5433:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    # pgvector extension is pre-installed; enable it in your migrations or manually with:
+    # CREATE EXTENSION IF NOT EXISTS vector;
+
+volumes:
+  db_data:
