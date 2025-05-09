@@ -1,4 +1,4 @@
-# Anya AI Platform
+# Anton AI Platform
 
 A modular AI platform with strong authentication and multiple interface options.
 
